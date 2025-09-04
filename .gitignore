@@ -4,11 +4,17 @@ math/reciprocal_square_root/
 
 
 # Simulator folders
+*.log
+*.jou
 prj_tb
 .Xil
 sim_*/
+
 .vscode/
 
 
 # Teroshdl
 teroshdl_files
+
+#large generated files
+random_generator/*/testbench/data_out.txt

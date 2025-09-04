@@ -8,6 +8,7 @@ This repository provides a rich collection of reusable VHDL components designed 
 - **math**: Perform accurate rounding operations, with more mathematical functions planned for future additions.
 - **memory**: Implement reliable RAM and FIFO modules for data storage and retrieval.
 - **packages**: Leverage well-structured packages for code organization and reusability across your designs.
+- **random_generator**: Implement random number generators of various types.
 
 ## Getting Started
 

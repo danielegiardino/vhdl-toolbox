@@ -1,3 +1,12 @@
+################################################
+# to run this script, use the following command in terminal
+#
+# > vivado -mode tcl -source sim_tb.tcl
+#
+# simulated file at the end of the script in section 
+# "SET TOP FILES"
+################################################
+
 
 # Set the name of the project folder
 set prjName "prj_tb"
@@ -9,7 +18,7 @@ if {[file exist $prjName]} {
     puts "$prjName exists, it's a folder and will be deleted."
     # Remove the folder
 		file delete -force $prjName
-		
+    
 		# Create the folder
 		file mkdir $prjName
   }
@@ -60,6 +69,13 @@ lappend fileList_vhdl {*}[glob memory/rom/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob memory/fifo/testbench/*.vhd]
 lappend fileList_tb   {*}[glob memory/rom/testbench/*.vhd]
 
+#file list of 'random_generator'
+lappend fileList_vhdl {*}[glob random_generator/Fibonacci_LFSR/vhdl/*.vhd]
+lappend fileList_vhdl {*}[glob random_generator/Galois_LFSR/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob random_generator/Fibonacci_LFSR/testbench/*.vhd]
+lappend fileList_tb   {*}[glob random_generator/Galois_LFSR/testbench/*.vhd]
+
+
 # File list of 'package'
 lappend fileList_vhdl {*}[glob packages/vhdl/*.vhd]
 
@@ -73,10 +89,26 @@ add_files $fileList_vhdl
 add_files $fileList_tb
 move_files -fileset sim_1 [get_files $fileList_tb]
 
-# Set top (sources)
-set_property top cordic_sqrt [current_fileset]
 
-# Set top (testbench)
-set_property top cordic_sqrt_tb [get_filesets sim_1]
+
+##############################################
+# SET TOP FILES
+##############################################
+
+## Set top (sources)
+set_property top lfsr_gal [current_fileset]
+
+## Set top (testbench)
+set_property top lfsr_gal_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 
+## Launch simulation
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+
+launch_simulation
+run all
+
+##start gui or exit
+#start_gui
+exit
