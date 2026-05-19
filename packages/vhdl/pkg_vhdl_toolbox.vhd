@@ -34,8 +34,8 @@ package pkg_vhdl_toolbox is
     Fl : integer -- Fractional length (number of bits)
   ) return std_logic_vector;
   function real_to_string_full_precision (real_val : real; frac_chars : integer) return string;
-  function get_gcd (a : positive; b : positive) return positive;
-  function get_lcm (a : positive; b : positive) return positive;
+  function gcd (a : positive; b : positive) return positive;
+  function lcm (a : positive; b : positive) return positive;
 
   -- TYPES
   type t_complex_std_vec16 is record
@@ -329,7 +329,7 @@ package body pkg_vhdl_toolbox is
   -- Calculates the Greatest Common Divisor (GCD) using the Euclidean algorithm.
   -- This runs at compile-time to determine generic parameters.
   ----------------------------------------------------------------------------
-  function get_gcd (a : positive; b : positive) return positive is
+  function gcd (a : positive; b : positive) return positive is
     variable temp_a    : natural := a;
     variable temp_b    : natural := b;
     variable remainder : natural;
@@ -340,17 +340,17 @@ package body pkg_vhdl_toolbox is
       temp_b    := remainder;
     end loop;
     return temp_a;
-  end function get_gcd;
+  end function gcd;
 
   ----------------------------------------------------------------------------
   -- Calculates the Least Common Multiple (LCM) of two positive integers.
   -- Divides first to prevent integer overflow during compile-time evaluation.
   ----------------------------------------------------------------------------
-  function get_lcm (a : positive; b : positive) return positive is
+  function lcm (a : positive; b : positive) return positive is
   begin
     -- Using positive types ensures inputs are always greater than 0
-    return (a / get_gcd(a, b)) * b;
-  end function get_lcm;
+    return (a / gcd(a, b)) * b;
+  end function lcm;
 
 
 end package body;
