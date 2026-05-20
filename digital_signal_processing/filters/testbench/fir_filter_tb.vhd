@@ -42,8 +42,8 @@ architecture sim_noSym of fir_filter_tb is
   
   constant Width_in     : integer := 16;
   constant Width_coeffs : integer := 18;
-  constant Width_sum    : integer := 38; -- Width_in + Width_coeffs + log2(Coeffs_len)
-  constant Clip_bits    : integer :=  4;
+  constant Width_sum    : integer := 40; -- Width_in + Width_coeffs + log2(Coeffs_len)
+  constant Clip_bits    : integer :=  5;
   constant Width_out    : integer := 18;
 
   signal enb       : std_logic;
@@ -90,11 +90,11 @@ begin
     Coeffs_len   => 64,
 
     -- FIR filter parameters
-    Width_in     => 16,
-    Width_coeffs => 18,
-    Width_sum    => 40, -- Width_in + Width_coeffs + log2(Coeffs_len)
-    Clip_bits    =>  5,
-    Width_out    => 18
+    Width_in     => Width_in    ,
+    Width_coeffs => Width_coeffs,
+    Width_sum    => Width_sum   , -- Width_in + Width_coeffs + log2(Coeffs_len)
+    Clip_bits    => Clip_bits   ,
+    Width_out    => Width_out
   )
   port map (
     clk       => clk       ,
