@@ -12,21 +12,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder. Upgrade the DDS design.
 
+
+## [2026.05.20]
+
+### Added
+
+**memory**
+
+- gearbox/
+  - testbench
+    - data_out.txt
+    - sample_gearbox_tb.vhd
+  - vhdl
+    - sample_gearbox.vhd
+
+### Changed
+
+Sections 2025.08.28 and 2025.08.29 were reformatted.
+
 ## [2025.08.29]
 
 ### Added
 
-**Random_generator**
+**random_generator**
 
-- Random_generator/
-  - Galois_LFSR
-    - matlab
-      - histo_out.m
-    - testbench
-      - data_out.txt
-        - lfsr_gal_tb.vhd
-      - vhdl
-        - lfsr_gal.vhd
+- Galois_LFSR
+  - matlab
+    - histo_out.m
+  - testbench
+    - lfsr_gal_tb.vhd
+  - vhdl
+    - lfsr_gal.vhd
 
 ### Changed
 
@@ -37,17 +53,15 @@ Some Readme files and comments in .vhd files that had typos have been corrected.
 
 ### Added
 
-**Random_generator**
+**random_generator**
 
-- Random_generator/
-  - Fibonacci_LFSR
-    - matlab
-      - histo_out.m
-    - testbench
-      - data_out.txt
-        - lfsr_fib_tb.vhd
-      - vhdl
-        - lfsr_fib.vhd
+- Fibonacci_LFSR
+  - matlab
+    - histo_out.m
+  - testbench
+    - lfsr_fib_tb.vhd
+  - vhdl
+    - lfsr_fib.vhd
 
 ## [2025.03.14]
 
