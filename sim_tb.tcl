@@ -64,9 +64,11 @@ lappend fileList_tb   {*}[glob math/square_root/cordic/testbench/*.vhd]
 
 # File list of 'memory'
 lappend fileList_vhdl {*}[glob memory/fifo/vhdl/*.vhd]
+lappend fileList_vhdl {*}[glob memory/gearbox/vhdl/*.vhd]
 lappend fileList_vhdl {*}[glob memory/ram/vhdl/*.vhd]
 lappend fileList_vhdl {*}[glob memory/rom/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob memory/fifo/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob memory/gearbox/testbench/*.vhd]
 lappend fileList_tb   {*}[glob memory/rom/testbench/*.vhd]
 
 #file list of 'random_generator'
