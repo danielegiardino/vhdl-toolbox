@@ -373,7 +373,11 @@ begin
             end if;
           when READ =>
             if unsigned(cnt_rd) = RD_CYCLES - 1 then
-              fsm_rd <= IDLE;
+              if fsm_wr=SEND then
+                fsm_rd <= READ;
+              else
+                fsm_rd <= IDLE;
+              end if;
             else
               fsm_rd <= READ;
             end if;
